@@ -1,0 +1,139 @@
+// math-utils v1.0.0 - Main entry point
+// Mathematical utility functions for Mindulle
+
+// Factorial
+func factorial(n) then: {
+    if (n <= 1) then: {
+        return 1
+    }
+    return n * factorial(n - 1)
+}
+
+// Power: base^exp
+func power(base, exp) then: {
+    vrb result = 1
+    vrb i = 0
+    while (i < exp) then: {
+        result = result * base
+        i = i + 1
+    }
+    return result
+}
+
+// Absolute value
+func abs(n) then: {
+    if (n < 0) then: {
+        return -n
+    }
+    return n
+}
+
+// Min of two numbers
+func min(a, b) then: {
+    if (a < b) then: {
+        return a
+    }
+    return b
+}
+
+// Max of two numbers
+func max(a, b) then: {
+    if (a > b) then: {
+        return a
+    }
+    return b
+}
+
+// Clamp value between min and max
+func clamp(value, minVal, maxVal) then: {
+    if (value < minVal) then: {
+        return minVal
+    }
+    if (value > maxVal) then: {
+        return maxVal
+    }
+    return value
+}
+
+// Sum of array
+func sumArray(arr, len) then: {
+    vrb total = 0
+    vrb i = 0
+    while (i < len) then: {
+        total = total + arr[i]
+        i = i + 1
+    }
+    return total
+}
+
+// Average of array
+func avgArray(arr, len) then: {
+    vrb total = 0
+    vrb i = 0
+    while (i < len) then: {
+        total = total + arr[i]
+        i = i + 1
+    }
+    if (len > 0) then: {
+        return total / len
+    }
+    return 0
+}
+
+// Is prime
+func isPrime(n) then: {
+    if (n <= 1) then: {
+        return false
+    }
+    if (n <= 3) then: {
+        return true
+    }
+    if (n % 2 == 0) then: {
+        return false
+    }
+    vrb i = 3
+    while (i * i <= n) then: {
+        if (n % i == 0) then: {
+            return false
+        }
+        i = i + 2
+    }
+    return true
+}
+
+// GCD
+func gcd(a, b) then: {
+    while (b != 0) then: {
+        vrb temp = b
+        b = a % b
+        a = temp
+    }
+    return a
+}
+
+// LCM
+func lcm(a, b) then: {
+    return (a * b) / gcd(a, b)
+}
+
+// Fibonacci
+func fibonacci(n) then: {
+    if (n <= 0) then: {
+        return 0
+    }
+    if (n == 1) then: {
+        return 1
+    }
+    vrb a = 0
+    vrb b = 1
+    vrb i = 2
+    while (i <= n) then: {
+        vrb temp = a + b
+        a = b
+        b = temp
+        i = i + 1
+    }
+    return b
+}
+
+print: "math-utils v1.0.0 loaded" + endl

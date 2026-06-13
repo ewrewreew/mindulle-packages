@@ -1,0 +1,29 @@
+[
+  {
+    "name": "math-utils",
+    "version": "1.0.0",
+    "description": "Math utility functions for Mindulle",
+    "author": "ewrewreew",
+    "license": "MIT",
+    "main": "main.mind",
+    "dependencies": []
+  },
+  {
+    "name": "string-tools",
+    "version": "0.1.0",
+    "description": "String manipulation utilities",
+    "author": "ewrewreew",
+    "license": "MIT",
+    "main": "main.mind",
+    "dependencies": []
+  },
+  {
+    "name": "array-helpers",
+    "version": "0.1.0",
+    "description": "Extended array operations",
+    "author": "ewrewreew",
+    "license": "MIT",
+    "main": "main.mind",
+    "dependencies": []
+  }
+]

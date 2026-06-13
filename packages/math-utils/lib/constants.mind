@@ -1,0 +1,9 @@
+// math-utils lib/constants.mind
+// Mathematical constants
+
+vrb PI = 3.14159265358979
+vrb E = 2.71828182845905
+vrb PHI = 1.61803398874989
+vrb SQRT2 = 1.41421356237310
+vrb SQRT3 = 1.73205080756888
+vrb GOLDEN_RATIO = 1.61803398874989

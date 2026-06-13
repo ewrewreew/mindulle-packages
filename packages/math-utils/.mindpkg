@@ -1,0 +1,8 @@
+# Mindulle Package: math-utils
+name = math-utils
+version = 1.0.0
+description = Math utility functions for Mindulle
+author = ewrewreew
+license = MIT
+main = main.mind
+dependencies =
