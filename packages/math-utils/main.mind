@@ -1,12 +1,15 @@
 // math-utils v1.0.0 - Main entry point
 // Mathematical utility functions for Mindulle
 
-// Factorial
+// Factorial (iterative)
 func factorial(n) then: {
-    if (n <= 1) then: {
-        return 1
+    vrb result = 1
+    vrb i = 1
+    while (i <= n) then: {
+        result = result * i
+        i = i + 1
     }
-    return n * factorial(n - 1)
+    return result
 }
 
 // Power: base^exp
@@ -55,31 +58,6 @@ func clamp(value, minVal, maxVal) then: {
     return value
 }
 
-// Sum of array
-func sumArray(arr, len) then: {
-    vrb total = 0
-    vrb i = 0
-    while (i < len) then: {
-        total = total + arr[i]
-        i = i + 1
-    }
-    return total
-}
-
-// Average of array
-func avgArray(arr, len) then: {
-    vrb total = 0
-    vrb i = 0
-    while (i < len) then: {
-        total = total + arr[i]
-        i = i + 1
-    }
-    if (len > 0) then: {
-        return total / len
-    }
-    return 0
-}
-
 // Is prime
 func isPrime(n) then: {
     if (n <= 1) then: {
@@ -116,7 +94,7 @@ func lcm(a, b) then: {
     return (a * b) / gcd(a, b)
 }
 
-// Fibonacci
+// Fibonacci (iterative)
 func fibonacci(n) then: {
     if (n <= 0) then: {
         return 0
