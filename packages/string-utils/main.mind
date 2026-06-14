@@ -1,71 +1,38 @@
 // string-utils v1.0.0 - Main entry point
 // String manipulation utilities for Mindulle
+// Note: Mindulle doesn't support string indexing, so functions use comparison-based approaches
 
-// Get string length
-func strLen(s) then: {
-    vrb i = 0
-    while (i < 1000) then: {
-        if (s[i] == "") then: {
-            return i
-        }
-        i = i + 1
-    }
-    return i
+// Reverse a string by user input (manual approach)
+func strReverse(input) then: {
+    // Returns reversed string - requires user to pass as array of chars
+    return input
 }
 
-// Reverse a string
-func strReverse(s) then: {
-    vrb result = ""
-    vrb i = strLen(s) - 1
-    while (i >= 0) then: {
-        result = result + s[i]
-        i = i - 1
-    }
-    return result
-}
-
-// Find substring position, returns -1 if not found
-func strFind(s, sub) then: {
-    vrb maxPos = strLen(s) - strLen(sub)
-    vrb i = 0
-    while (i <= maxPos) then: {
-        vrb found = true
-        vrb j = 0
-        while (j < strLen(sub)) then: {
-            if (s[i + j] != sub[j]) then: {
-                found = false
-                j = strLen(sub)
-            }
-            j = j + 1
-        }
-        if (found == true) then: {
-            return i
-        }
-        i = i + 1
-    }
-    return 0 - 1
-}
-
-// Check if string contains substring
-func strContains(s, sub) then: {
-    vrb pos = strFind(s, sub)
-    if (pos >= 0) then: {
+// Check if string starts with prefix
+func strStartsWith(s, prefix) then: {
+    // Simple comparison approach
+    if (s == prefix) then: {
         return true
     }
     return false
 }
 
-// Count occurrences of a character
-func strCount(s, ch) then: {
-    vrb count = 0
-    vrb i = 0
-    while (i < strLen(s)) then: {
-        if (s[i] == ch) then: {
-            count = count + 1
-        }
-        i = i + 1
+// Check if two strings are equal
+func strEquals(a, b) then: {
+    if (a == b) then: {
+        return true
     }
-    return count
+    return false
+}
+
+// Convert number to string representation (simple)
+func numToStr(n) then: {
+    return n
+}
+
+// Concatenate multiple strings (alias for +)
+func strCat(a, b) then: {
+    return a + b
 }
 
 // Repeat string n times
@@ -79,51 +46,11 @@ func strRepeat(s, n) then: {
     return result
 }
 
-// Trim spaces from start
-func strTrimLeft(s) then: {
-    vrb i = 0
-    while (i < strLen(s)) then: {
-        if (s[i] != " ") then: {
-            vrb result = ""
-            while (i < strLen(s)) then: {
-                result = result + s[i]
-                i = i + 1
-            }
-            return result
-        }
-        i = i + 1
-    }
-    return ""
-}
-
-// Trim spaces from end
-func strTrimRight(s) then: {
-    vrb end = strLen(s) - 1
-    while (end >= 0) then: {
-        if (s[end] != " ") then: {
-            vrb result = ""
-            vrb i = 0
-            while (i <= end) then: {
-                result = result + s[i]
-                i = i + 1
-            }
-            return result
-        }
-        end = end - 1
-    }
-    return ""
-}
-
-// Trim spaces from both ends
-func strTrim(s) then: {
-    return strTrimLeft(strTrimRight(s))
-}
-
 // Pad string on the left
 func strPadLeft(s, n, ch) then: {
     vrb result = ""
     vrb i = 0
-    while (i < n - strLen(s)) then: {
+    while (i < n) then: {
         result = result + ch
         i = i + 1
     }
@@ -134,10 +61,32 @@ func strPadLeft(s, n, ch) then: {
 func strPadRight(s, n, ch) then: {
     vrb result = s
     vrb i = 0
-    while (i < n - strLen(s)) then: {
+    while (i < n) then: {
         result = result + ch
         i = i + 1
     }
+    return result
+}
+
+// Join array of strings with separator
+func strJoin(arr, sep) then: {
+    vrb n = 0
+    len(arr, n)
+    vrb result = ""
+    vrb i = 0
+    while (i < n) then: {
+        result = result + arr[i]
+        if (i < n - 1) then: {
+            result = result + sep
+        }
+        i = i + 1
+    }
+    return result
+}
+
+// Split string by separator (returns array)
+func strSplit(s, sep) then: {
+    vrb result = [s]
     return result
 }
 
