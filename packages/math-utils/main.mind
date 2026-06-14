@@ -26,7 +26,8 @@ func power(base, exp) then: {
 // Absolute value
 func abs(n) then: {
     if (n < 0) then: {
-        return -n
+        vrb result = 0 - n
+        return result
     }
     return n
 }
