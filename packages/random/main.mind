@@ -1,0 +1,97 @@
+// random v1.0.0 - Main entry point
+// Random number generation utilities for Mindulle
+// Uses Linear Congruential Generator (LCG) algorithm
+
+// Internal state
+vrb _randomSeed = 42
+
+// Set seed for reproducible sequences
+func randomSeed(seed) then: {
+    _randomSeed = seed
+    return 0
+}
+
+// Get next pseudo-random number (0 to 32767)
+func randomNext() then: {
+    _randomSeed = (_randomSeed * 1103515245 + 12345)
+    return _randomSeed
+}
+
+// Random integer between min and max (inclusive)
+func randomInt(minVal, maxVal) then: {
+    vrb r = randomNext()
+    if (r < 0) then: {
+        r = 0 - r
+    }
+    vrb range = maxVal - minVal + 1
+    return minVal + (r % range)
+}
+
+// Random float between 0 and 1
+func randomFloat() then: {
+    vrb r = randomNext()
+    if (r < 0) then: {
+        r = 0 - r
+    }
+    return (r % 10000) / 10000
+}
+
+// Random float between min and max
+func randomRange(minVal, maxVal) then: {
+    return minVal + (maxVal - minVal) * randomFloat()
+}
+
+// Random choice from array
+func randomChoice(arr) then: {
+    vrb n = 0
+    len(arr, n)
+    vrb idx = randomInt(0, n - 1)
+    return arr[idx]
+}
+
+// Shuffle array (Fisher-Yates)
+func shuffle(arr) then: {
+    vrb n = 0
+    len(arr, n)
+    vrb i = n - 1
+    while (i > 0) then: {
+        vrb j = randomInt(0, i)
+        vrb temp = arr[i]
+        arr[i] = arr[j]
+        arr[j] = temp
+        i = i - 1
+    }
+    return arr
+}
+
+// Generate random string of given length
+func randomString(length) then: {
+    vrb chars = "abcdefghijklmnopqrstuvwxyz0123456789"
+    vrb result = ""
+    vrb i = 0
+    while (i < length) then: {
+        vrb idx = randomInt(0, 35)
+        result = result + chars[idx]
+        i = i + 1
+    }
+    return result
+}
+
+// Coin flip (returns true/false)
+func coinFlip() then: {
+    vrb r = randomNext()
+    if (r < 0) then: {
+        r = 0 - r
+    }
+    if (r % 2 == 0) then: {
+        return false
+    }
+    return true
+}
+
+// Roll dice (1 to 6)
+func rollDice() then: {
+    return randomInt(1, 6)
+}
+
+print: "random v1.0.0 loaded" + endl

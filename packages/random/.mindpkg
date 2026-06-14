@@ -1,0 +1,8 @@
+# Mindulle Package: random
+name = random
+version = 1.0.0
+description = Random number generation utilities for Mindulle
+author = ewrewreew
+license = MIT
+main = main.mind
+dependencies =

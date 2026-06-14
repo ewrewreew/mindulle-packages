@@ -1,0 +1,8 @@
+# Mindulle Package: string-utils
+name = string-utils
+version = 1.0.0
+description = String manipulation utilities for Mindulle
+author = ewrewreew
+license = MIT
+main = main.mind
+dependencies =

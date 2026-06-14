@@ -1,0 +1,8 @@
+# Mindulle Package: sorting
+name = sorting
+version = 1.0.0
+description = Sorting algorithms for Mindulle (bubble, selection, insertion)
+author = ewrewreew
+license = MIT
+main = main.mind
+dependencies =
